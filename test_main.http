@@ -1,0 +1,34 @@
+
+
+POST http://localhost:8000/
+Accept: text/plain
+
+현재 테슬라 주가를 알려줘
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+오늘 테슬라 시작가를 알려줘
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+엔비디아 현재 가격은 어떻게 돼?
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+오늘 퀀텀스케이프는 얼마나 올랐어?
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+오늘 뉴스케일파워는 주식 가격이 올랐어? 떨어졌어?
