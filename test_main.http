@@ -32,3 +32,24 @@ POST http://localhost:8000/
 Accept: text/plain
 
 오늘 뉴스케일파워는 주식 가격이 올랐어? 떨어졌어?
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+오늘 비트코인 시세는 얼마야?
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+오늘 비트코인 업비트 시세는 얼마야?
+
+###
+
+POST http://localhost:8000/
+Accept: text/plain
+
+이더리움 업비트랑 빗썸 가격은 차이는 얼마야?

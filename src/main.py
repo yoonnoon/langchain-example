@@ -26,6 +26,20 @@ GET https://polling.finance.naver.com/api/realtime/worldstock/stock
 엔비디아: NVDA.O
 퀀텀스케이프: QS
 뉴스케일파워: SMR
+
+주식 실시간 GET 요청시 url 뒤에 ticker를 붙인다. (payload는 없음)
+
+가상화폐 실시간 정보 API:
+POST https://m.stock.naver.com/front-api/realTime/crypto
+
+가상화폐 ticker 목록
+비트코인(업비트): BTC_KRW_UPBIT
+비트코인(빗썸): BTC_KRW_BITHUMB
+이더리움(업비트): ETH_KRW_UPBIT
+이더리움(업비트): ETH_KRW_BITHUMB 
+
+POST 요청시 payload 구성:
+fqnfTickers 필드에 ticker를 리스트로 담는다.
 """
 
 # Prompt Template 정의
@@ -39,8 +53,8 @@ User input:
 User input 이 주가를 알려달라는 요청이면 주어진 API 목록에서 ticker를 선택해서, 아래와 같은 JSON format으로 응답해줘:
 {{
   "selected_url": "api",
-  "selected_http_method": "http method"
-  "ticker": "value"
+  "selected_http_method": "http method",
+  "payload": "if http method post, return payload"
   "reason": "Reason for selecting the API"
 }}
 """
@@ -55,8 +69,6 @@ Context:
 
 User input:
 {user_input}
-
-User input 에서 원하는 그 값만 알려줘. User input이 뭔지는 알려주지 않아도 돼.
 """
 
 json_analysis_prompt = PromptTemplate(
@@ -79,7 +91,8 @@ async def health(request: Request):
     async with aiohttp.ClientSession() as session:
         async with session.request(
                 method=ai_response['selected_http_method'],
-                url=ai_response['selected_url'] + '/' + ai_response['ticker']
+                url=ai_response['selected_url'],
+                json=ai_response['payload'] if ai_response['payload'] else None
         ) as response:
             stock_json_data = await response.read()
 
