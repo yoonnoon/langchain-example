@@ -36,7 +36,11 @@ POST https://m.stock.naver.com/front-api/realTime/crypto
 비트코인(업비트): BTC_KRW_UPBIT
 비트코인(빗썸): BTC_KRW_BITHUMB
 이더리움(업비트): ETH_KRW_UPBIT
-이더리움(업비트): ETH_KRW_BITHUMB 
+이더리움(빗썸): ETH_KRW_BITHUMB 
+에이다(업비트): ADA_KRW_UPBIT
+에이다(빗썸): ADA_KRW_BITHUMB
+리플(업비트): XRP_KRW_UPBIT
+리플(빗썸): XRP_KRW_BITHUMB 
 
 POST 요청시 payload 구성:
 fqnfTickers 필드에 ticker를 리스트로 담는다.
